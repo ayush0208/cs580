@@ -1,0 +1,35 @@
+\usepackage{zref-abspos}
+\newcommand*{\SEP}[1]{
+
+  \zsaveposy{#1}
+
+}
+
+\newcommand\config[2]{
+  \SEP{config=#1=#2}
+}
+
+\newenvironment{Questions}{
+  \SEP{begin_questions}
+  \begin{enumerate}
+  \newcommand\Question{\SEP{new_question}\item}
+  \newcommand\HiddenPart{\SEP{new_hidden_part}}
+  \newenvironment{Parts}{
+    \begin{enumerate}
+    \newcommand\Part{\SEP{new_part}\item}
+  }
+  {
+    \end{enumerate}
+  }
+{
+  \end{enumerate}
+  \SEP{end_questions}
+}
+
+
+
+
+
+
+
+
